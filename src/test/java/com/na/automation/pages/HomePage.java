@@ -36,4 +36,38 @@ public class HomePage extends AbstractPage {
 
         return new SearchResultsPage(driver);
     }
+
+    @FindBy(css = "a.ico-login")
+    private WebElement loginLink;
+
+    public LoginPage openLoginPage() {
+        wait.until(ExpectedConditions.elementToBeClickable(loginLink)).click();
+
+        return new LoginPage(driver);
+    }
+
+    @FindBy(css = "a.ico-logout")
+    private WebElement logoutLink;
+
+    public boolean isLoggedIn() {
+        return wait.until(ExpectedConditions.visibilityOf(logoutLink)).isDisplayed();
+    }
+
+    @FindBy(css = "ul.top-menu a[href='/jewelry']")
+    private WebElement jewelryUrl;
+
+    public JewelryPage openJewelryCategory() {
+        wait.until(ExpectedConditions.elementToBeClickable(jewelryUrl)).click();
+
+        return new JewelryPage(driver);
+    }
+
+    public HomePage logout() {
+        wait.until(ExpectedConditions.elementToBeClickable(logoutLink)).click();
+        return new HomePage(driver);
+    }
+
+    public boolean isLoggedOut() {
+        return wait.until(ExpectedConditions.visibilityOf(loginLink)).isDisplayed();
+    }
 }

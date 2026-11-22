@@ -11,7 +11,9 @@ public class ProductComparisonTest extends BaseTest {
 
     @Test
     public void findLaptopInResults() {
-        // first product
+        // TC-01
+
+        // searching for first product, adding it to comparison list
         String productName = "14.1-inch Laptop";
 
         HomePage homePage = new HomePage(driver);
@@ -35,7 +37,7 @@ public class ProductComparisonTest extends BaseTest {
 
         Assert.assertEquals(comparisonPage.getProductPrice(actualProductName), actualProductPrice, "comparison price should match the product page price");
 
-        // second product
+        // searching for second product, adding it to comparison list
         String secondProductName = "Desktop PC with CDRW";
 
         homePage.open();

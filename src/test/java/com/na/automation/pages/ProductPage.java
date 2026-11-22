@@ -37,4 +37,24 @@ public class ProductPage extends AbstractPage {
         wait.until(ExpectedConditions.elementToBeClickable(addToCompareListButton)).click();
         return new ComparisonPage((driver));
     }
+
+    @FindBy(id = "add-to-wishlist-button-14")
+    private WebElement addToWishlistButton;
+
+    @FindBy(css = "div.bar-notification")
+    private WebElement notification;
+
+    public ProductPage addToWishList() {
+        wait.until(ExpectedConditions.elementToBeClickable(addToWishlistButton)).click();
+        wait.until(ExpectedConditions.visibilityOf(notification));
+        return this;
+    }
+
+    @FindBy(css = "a.ico-wishlist")
+    private WebElement wishlistUrl;
+
+    public WishlistPage openWishlist() {
+        wait.until(ExpectedConditions.elementToBeClickable(wishlistUrl)).click();
+        return new WishlistPage(driver);
+    }
 }
