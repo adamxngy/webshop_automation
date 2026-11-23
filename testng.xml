@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Demo Web Shop Automation Framework"
+       parallel="classes"
+       thread-count="3">
+
+    <test name="Scenarios">
+        <classes>
+            <class name="com.na.automation.tests.ProductComparisonTest"/>
+            <class name="com.na.automation.tests.WishListTest"/>
+            <class name="com.na.automation.tests.ShoppingCartTest"/>
+        </classes>
+    </test>
+</suite>
