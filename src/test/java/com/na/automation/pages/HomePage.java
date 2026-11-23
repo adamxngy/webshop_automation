@@ -70,4 +70,13 @@ public class HomePage extends AbstractPage {
     public boolean isLoggedOut() {
         return wait.until(ExpectedConditions.visibilityOf(loginLink)).isDisplayed();
     }
+
+    @FindBy(css = "ul.top-menu a[href='/computers']")
+    private WebElement computersUrl;
+
+    public ComputersPage openComputersCategory() {
+        wait.until(ExpectedConditions.elementToBeClickable(computersUrl)).click();
+
+        return new ComputersPage(driver);
+    }
 }
