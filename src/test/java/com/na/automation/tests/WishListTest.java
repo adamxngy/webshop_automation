@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class WishListTest extends BaseTest {
     @Test
-    public void openJewelryAfterLogin() {
+    public void manageWishlist() {
         // TC-02
         // logging in
         String email = System.getenv("DWS_EMAIL");

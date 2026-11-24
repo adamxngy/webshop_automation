@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 
 public class ShoppingCartTest  extends BaseTest {
     @Test
-    public void shouldOpenConfigurableComputer() {
+    public void configureAndManageComputer() {
         // TC-03
         // select computer to configure
         String productName = "Build your own computer";
@@ -63,7 +63,6 @@ public class ShoppingCartTest  extends BaseTest {
 
         // updating quantity
         shoppingCartPage.changeQuantity(productName, 2);
-        shoppingCartPage.updateCart();
         Assert.assertEquals(shoppingCartPage.getProductQuantity(productName), 2, "cart quantity should be 2");
 
         BigDecimal unitPrice = parsePrice(shoppingCartPage.getProductUnitPrice(productName));

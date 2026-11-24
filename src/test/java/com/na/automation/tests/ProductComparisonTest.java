@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class ProductComparisonTest extends BaseTest {
 
     @Test
-    public void findLaptopInResults() {
+    public void compareProducts() {
         // TC-01
 
         // searching for first product, adding it to comparison list
@@ -46,7 +46,7 @@ public class ProductComparisonTest extends BaseTest {
         SearchResultsPage secondSearchResult = homePage.searchFor(secondProductName);
         Assert.assertTrue(secondSearchResult.isProductDisplayed(secondProductName), "Product should appear in search results");
 
-        ProductPage secondProductPage = searchResults.openProduct(secondProductName);
+        ProductPage secondProductPage = secondSearchResult.openProduct(secondProductName);
         Assert.assertEquals(secondProductPage.getProductName(), secondProductName, "Correct desktop page should be displayed");
 
         String secondProductPrice = secondProductPage.getProductPrice();

@@ -37,19 +37,14 @@ public class ShoppingCartPage extends AbstractPage {
         return getProductRow(productName).findElement(By.cssSelector("span.product-subtotal")).getText().trim();
     }
 
+    @FindBy(css = "input[name='updatecart']")
+    private WebElement updateCartButton;
+
     public ShoppingCartPage changeQuantity(String productName, int quantity) {
         WebElement quantityInput = getProductRow(productName).findElement(By.cssSelector("input.qty-input"));
         quantityInput.clear();
         quantityInput.sendKeys(String.valueOf(quantity));
 
-        wait.until(ExpectedConditions.elementToBeClickable(updateCartButton)).click();
-        return this;
-    }
-
-    @FindBy(css = "input[name='updatecart']")
-    private WebElement updateCartButton;
-
-    public ShoppingCartPage updateCart() {
         wait.until(ExpectedConditions.elementToBeClickable(updateCartButton)).click();
         return this;
     }
